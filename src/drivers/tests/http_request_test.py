@@ -24,3 +24,4 @@ def test_request_from_url_quote():
 
     assert isinstance(response_content, list)
     assert isinstance(response_content[0], dict)
+    
