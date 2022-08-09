@@ -1,0 +1,7 @@
+
+.env
+__pycache__/
+venv/
+
+http_request_mock.py
+header_request.py
