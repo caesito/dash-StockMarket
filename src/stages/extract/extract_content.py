@@ -1,21 +1,20 @@
 from src.drivers.interfaces.http_request import HttpRequestInterface
-from src.stages.contract.extract_contract import ExtractContract
+from src.stages.contracts.extract_contract import ExtractContract
 
-class ExtractQuote():
+class ExtractContent:
 
-    def __init__(self, http_request_chart: HttpRequestInterface, http_request_quote: HttpRequestInterface) -> None:
-        self.__http_request_chart=http_request_chart
-        self.__http_request_quote=http_request_quote
+    def __init__(self, http_request: HttpRequestInterface) -> None:
+        self.__http_request=http_request
 
-    def extract(self) -> ExtractQuoteContract:
+    def extract(self) -> ExtractContract:
 
         try:
-            content_chart=self.__http_request_chart.request_from_url_chart()
-            content_quote=self.__http_request_quote.request_from_url_quote()
-            return ExtractQuoteContract(
+            content_chart=self.__http_request.request_from_url_chart()
+            content_quote=self.__http_request.request_from_url_quote()
+            return ExtractContract(
                 chart_summary=content_chart,
                 quote_summary=content_quote
             )
-        except Exeption as error:
+        except Exception as error:
             print(error)
             

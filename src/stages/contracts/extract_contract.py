@@ -5,6 +5,5 @@ ExtractContract = namedtuple(
     '''
         chart_summary,
         quote_summary
-        
     '''
 )
