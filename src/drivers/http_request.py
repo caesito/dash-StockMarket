@@ -2,30 +2,25 @@ from typing import List, Dict
 from .header_request import HeaderRequests
 import requests
 
-class HttpRequestChart(HeaderRequests):
+class HttpRequest(HeaderRequests):
 
     def __init__(self,tickers: List[str]) -> None:
         self.__url_chart='https://query1.finance.yahoo.com/v8/finance/chart/'
+        self.__url_name='https://query1.finance.yahoo.com/v1/finance/quoteType/?symbol='
+        self.__url_info='https://query1.finance.yahoo.com/v10/finance/quoteSummary/'
+        self.__parameter='?modules=assetProfile%2CsecFilings'
         self.tickers=tickers
 
     def request_from_url_chart(self) -> List[Dict]:
 
         response_chart=[]
         for ticker in self.tickers:
-            url_chart ='{}{}'.format(self.url_chart, ticker)
+            url_chart ='{}{}'.format(self.__url_chart, ticker)
             response= requests.get(url_chart, headers=super().header, data=super().payload_chart).json()
             response_chart.append(response)
             
         return response_chart
-
-class HttpRequestQuotes(HeaderRequests):
-
-    def __init__(self, tickers: List[str]) -> None:
-        self.__url_name='https://query1.finance.yahoo.com/v1/finance/quoteType/?symbol='
-        self.__url_info='https://query1.finance.yahoo.com/v10/finance/quoteSummary/'
-        self.__parameter='?modules=assetProfile%2CsecFilings'
-        self.tickers=tickers
-
+    
     def request_from_url_quote(self) -> List[Dict[str, str]]:
 
         response_tickers= []

@@ -1,8 +1,9 @@
 from collections import namedtuple
 
-ExtractQuoteContract = namedtuple(
-    "ExtractQuoteContract",
+ExtractContract = namedtuple(
+    "ExtractContract",
     '''
+        chart_summary,
         quote_summary
         
     '''

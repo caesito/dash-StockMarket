@@ -1,13 +1,13 @@
-from src.drivers.http_request import HttpRequestChart, HttpRequestQuotes
-from src.drivers.mocks.http_request_mock import MockHttpRequestChart, MockHttpRequestQuotes
+from src.drivers.http_request import HttpRequest
+from src.drivers.mocks.http_request_mock import MockHttpRequest
 
 
 def test_request_from_url_chart():
 
-    #request_chart=HttpRequestChart(['JNJ'])
+    #request_chart=HttpRequest(['JNJ'])
     #response_content=request_chart.request_from_url_chart()
     
-    request_chart=MockHttpRequestChart(['JNJ'])
+    request_chart=MockHttpRequest(['JNJ'])
     response_content=request_chart.mock_request_from_url_chart()
     
     assert isinstance(response_content, list)
@@ -16,10 +16,10 @@ def test_request_from_url_chart():
  
 def test_request_from_url_quote():
 
-    #request_quote=HttpRequestQuote(['JNJ'])
+    #request_quote=HttpRequest(['JNJ'])
     #response_content=request_quote.request_from_url_quote()
 
-    request_quote=MockHttpRequestQuotes(['JNJ'])
+    request_quote=MockHttpRequest(['JNJ'])
     response_content=request_quote.mock_request_from_url_quote()
 
     assert isinstance(response_content, list)
