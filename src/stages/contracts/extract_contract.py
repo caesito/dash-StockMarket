@@ -3,7 +3,7 @@ from collections import namedtuple
 ExtractContract = namedtuple(
     "ExtractContract",
     '''
-        chart_summary,
+        chart_summary
         quote_summary
     '''
 )
